@@ -1,0 +1,11 @@
+peline {   
+  agent  any
+  stages {         
+    stage("Git Checkout"){           
+      steps{                
+	git credentialsId: 'github', url: 'https://github.com/barikharekrishna/dockerimage.git'                 
+	echo 'Git Checkout Completed'            
+      }        
+    }
+  }
+}
