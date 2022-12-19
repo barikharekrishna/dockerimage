@@ -1,9 +1,10 @@
-peline {   
-  agent  any
+ pipeline {
+  agent {
+    kubernetes {
   stages {         
     stage("Git Checkout"){           
       steps{                
-	git credentialsId: 'github', url: 'https://github.com/barikharekrishna/dockerimage.git'                 
+	checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/barikharekrishna/dockerimage.git']]])                                  
 	echo 'Git Checkout Completed'            
       }        
     }
